@@ -2,54 +2,80 @@ package main
 
 import (
 	"fmt"
+	"errors"
 )
 
 func main(){
-	x := 9
-	y := 8 
+	x := 9.0
+	y := 8.0 	
 
-	// Manual
-	//add := x + y
-	//min := x - y
-	//multiple := x * y
-	//division := x / y
-
-	//fmt.Println("x + y = ", add)
-	//fmt.Println("x - y = ", min)
-	//fmt.Println("x * y = ", multiple)
-	//fmt.Println("x / y = ", division)
-
+	//Exercise 1
 	//Menggunakan func
-	resultAdd 		:= add(x,y)
-	resultMin		:= min(x,y)
-	resultMultiple 	:= multiple(x,y)
-	resultDivision 	:= division(x,y)
+	//resultAdd 		:= add(x,y)
+	//resultMin		:= min(x,y)
+	//resultMultiple 	:= multiple(x,y)
+	//resultDivision 	:= division(x,y)
 
-	fmt.Println("x = ",x)
-	fmt.Println("y = ",y)
-	fmt.Println("x + y = ",resultAdd)
-	fmt.Println("x - y = ",resultMin)
-	fmt.Println("x * y = ",resultMultiple)
-	fmt.Println("x / y = ",resultDivision)
+	//fmt.Println("y = ",y)
+	//fmt.Println("x + y = ",resultAdd)
+	//fmt.Println("x - y = ",resultMin)
+	//fmt.Println("x * y = ",resultMultiple)
+	//fmt.Println("x / y = ",resultDivision)
+
+	result,err := Arithmatic(x,y, "32")
+
+	if err != nil{
+		fmt.Println(err)
+	}
+
+	fmt.Println("Arithmatic = ",result,err)
 
 }
 
-func add(x int, y int) (int){
+/*Exercise 2
+func add(x float64, y float64) (float64){
 	result := x + y
 	return result
 }
 
-func min(x int, y int) (int){
+func min(x float64, y float64) (float64){
 	result := x - y
 	return result
 }
 
-func multiple(x int, y int) (int){
+func multiple(x float64, y float64) (float64){
 	result := x * y
 	return result
 }
 
-func division(x int, y int) (int){
-	result := x * y
+func division(x float64, y float64) (float64){
+	result := x / y
 	return result
+}
+*/
+
+func Arithmatic(x float64, y float64, s string) (float64, error){
+	switch s {
+	case "+" :
+		val := x + y
+		fmt.Println("x + y = ",val)
+		return val,nil
+	case "-":
+		val := x - y
+		fmt.Println("x - y = ",val)
+		return val,nil
+	case "*":
+		val := x * y
+		fmt.Println("x * y = ",val)
+		return val,nil
+	case "/":
+		val := x / y
+		fmt.Println("x / y = ",val)
+		return val,nil
+	default:
+
+		return 0, errors.New("Input tanda Salah")
+	
+	}
+	return 0,nil
 }
