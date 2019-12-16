@@ -6,8 +6,17 @@ import (
 )
 
 func main(){
-	x := 9.0
-	y := 8.0 	
+	//x := 9.0
+	//y := 8.0
+	var x,y float64 	
+	var operator string
+
+	fmt.Println("Masukkan nilai x : ")
+	fmt.Scan(&x)
+	fmt.Println("Masukkan nilai y : ")
+	fmt.Scan(&y)
+	fmt.Println("Masukkan operator : ")
+	fmt.Scan(&operator)
 
 	//Exercise 1
 	//Menggunakan func
@@ -22,7 +31,7 @@ func main(){
 	//fmt.Println("x * y = ",resultMultiple)
 	//fmt.Println("x / y = ",resultDivision)
 
-	result,err := Arithmatic(x,y, "32")
+	result,err := Arithmatic(x,y, operator)
 
 	if err != nil{
 		fmt.Println(err)
@@ -58,19 +67,19 @@ func Arithmatic(x float64, y float64, s string) (float64, error){
 	switch s {
 	case "+" :
 		val := x + y
-		fmt.Println("x + y = ",val)
+		//fmt.Println("x + y = ",val)
 		return val,nil
 	case "-":
 		val := x - y
-		fmt.Println("x - y = ",val)
+		//fmt.Println("x - y = ",val)
 		return val,nil
 	case "*":
 		val := x * y
-		fmt.Println("x * y = ",val)
+		//fmt.Println("x * y = ",val)
 		return val,nil
 	case "/":
 		val := x / y
-		fmt.Println("x / y = ",val)
+		//fmt.Println("x / y = ",val)
 		return val,nil
 	default:
 
